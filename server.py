@@ -3,7 +3,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 app = FastAPI()
 rooms = {}
 
-@app.websocket("/ws")
+@app.websocket("/ws")  # <-- this is the route your client must use
 async def websocket_endpoint(ws: WebSocket):
     await ws.accept()
     room = await ws.receive_text()
